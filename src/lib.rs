@@ -6,8 +6,8 @@ use openai_flows::chat_completion;
 #[tokio::main(flavor = "current_thread")]
 pub async fn run() {
     listen_to_event(
-        "second-state",
-        "chat-with-chatgpt",
+        "juntao",
+        "test",
         vec!["issue_comment", "issues"],
         handler,
     )
@@ -15,8 +15,8 @@ pub async fn run() {
 }
 
 async fn handler(payload: EventPayload) {
-    let octo = get_octo(Some(String::from("second-state")));
-    let issues = octo.issues("second-state", "chat-with-chatgpt");
+    let octo = get_octo(Some(String::from("juntao")));
+    let issues = octo.issues("juntao", "test");
 
     match payload {
         EventPayload::IssueCommentEvent(e) => {
